@@ -1,6 +1,7 @@
 // OOP = Object Oriented Programming
+//----------------------------------
 
-// Object Literal
+// Object Literals
 var bob = {
   name: "Bob",
   location: "Houston"
@@ -11,7 +12,7 @@ var ed = {
   location: "Dallas"
 }
 
-// Factory
+// Factory 
 function makePerson(name, location) {
   var person = {};
   person.name = name;
@@ -27,7 +28,7 @@ var Person = function(name, location) {
   this.name = name;
   this.location = location;
 }
-
+// Adding Methods (Functions) to Class Prototype
 Person.prototype.sayHi = function() {
   return "Hi, my name is " + this.name;
 }
@@ -36,6 +37,7 @@ Person.prototype.curse = function(name) {
   return "Go fuck yourself " + name + "!";
 }
 
+// Instantiating Objects
 var kevin = new Person("Kevin", "Portland");
 
 var patrick = new Person("Patrick", "Alameda");

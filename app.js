@@ -12,6 +12,15 @@ var ed = {
   location: "Dallas"
 }
 
+// Dot notation
+bob.name
+bob.location
+
+// Bracket notation
+bob["name"]
+bob["location"]
+
+
 // Factory 
 function makePerson(name, location) {
   var person = {};
@@ -23,11 +32,23 @@ function makePerson(name, location) {
   return person;
 }
 
-// Constructor
-var Person = function(name, location) {
+var joe = makePerson("Joe", "Chicago")
+
+joe.sayHi();
+
+
+// Constructor (with Closure)
+var Person = function(name, location, age) {
   this.name = name;
   this.location = location;
+  this.getAge = function() {
+    return age;
+  };
+  this.getOlder = function() {
+    return ++age;
+  }
 }
+
 // Adding Methods (Functions) to Class Prototype
 Person.prototype.sayHi = function() {
   return "Hi, my name is " + this.name;
@@ -52,6 +73,7 @@ var Doctor = function(specialty, name, location) {
   Person.call(this, name, location);
   this.specialty = specialty;   
 } 
+
 Doctor.prototype = Object.create(Person.prototype);
 Doctor.prototype.constructor = Doctor;
 
